@@ -1,11 +1,8 @@
-class Wall {
+class UneatableGrass {
     constructor(x, y) {
         this.x = x;
         this.y = y;
-        this.energy = 10;
-        this.directions = [];
-    }
-    getNewCoordinates() {
+        this.multiply = 0;
         this.directions = [
             [this.x - 1, this.y - 1],
             [this.x, this.y - 1],
@@ -18,23 +15,35 @@ class Wall {
         ];
 
     }
+
     chooseCell(character) {
-        this.getNewCoordinates()
         var found = [];
         for (var i in this.directions) {
             var x = this.directions[i][0];
             var y = this.directions[i][1];
-            if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) {
-
+            if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length)
                 if (matrix[y][x] == character) {
                     found.push(this.directions[i]);
                 }
-            }
         }
         return found;
+    }
 
+    mul () {
+        this.multiply++;
+        var emptyCells = this.chooseCell(0);
+        var newCell = random(emptyCells);
+ 
+        console.log(emptyCells, newCell);
+        if(newCell && this.multiply >= 10){
+            var newX = newCell[0];
+            var newY = newCell[1];
+            matrix[newY][newX] = 6;
+ 
+            var newuneatableGrass = new UneatableGrass(newX, newY);
+            uneatableGrassArr.push(newuneatableGrass);
+            this.multiply = 0;
+        }
     }
-    stay(){
-        
-    }
+ 
 }

@@ -2,7 +2,7 @@ class Predator{
     constructor(x, y) {
         this.x = x;
         this.y = y;
-        this.energy = 8;
+        this.energy = 30;
         this.directions = [];
     }
     getNewCoordinates() {
