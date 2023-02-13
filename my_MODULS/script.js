@@ -1,4 +1,4 @@
-function generateMatrix(matLength, gr, grEa, pr, wl, wlbr, ug) {
+function generateMatrix(matLength, gr,gre, pr, wl, wlbr, ug) {
     let matrix = [];
     for (let i = 0; i < matLength; i++) {
         matrix.push([])
@@ -13,7 +13,7 @@ function generateMatrix(matLength, gr, grEa, pr, wl, wlbr, ug) {
             matrix[x][y] = 1;
         }
     }
-    for (let i = 0; i < grEa; i++) {
+    for (let i = 0; i < gre; i++) {
         let x = Math.floor(Math.random() * matLength);
         let y = Math.floor(Math.random() * matLength);
         if (matrix[y][x] == 0) {
