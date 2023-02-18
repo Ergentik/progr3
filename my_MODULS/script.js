@@ -1,3 +1,10 @@
+var GrassEater = require('./grassEater')
+var Predator = require('./predator')
+var Wall = require('./wall')
+var WallBreaker = require('./wallBreaker')
+var UneatableGrass = require('./uneatableGrass')
+var Grass = require('./grass')
+
 function generateMatrix(matLength, gr,gre, pr, wl, wlbr, ug) {
     let matrix = [];
     for (let i = 0; i < matLength; i++) {
