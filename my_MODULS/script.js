@@ -1,9 +1,9 @@
-var GrassEater = require('./grassEater')
-var Predator = require('./predator')
-var Wall = require('./wall')
-var WallBreaker = require('./wallBreaker')
-var UneatableGrass = require('./uneatableGrass')
-var Grass = require('./grass')
+import GrassEater from './grassEater.js';
+import Predator from './predator.js';
+import Wall from './wall.js';
+import WallBreaker from './wallBreaker.js';
+import UneatableGrass from './uneatableGrass.js';
+import Grass from './grass.js';
 
 function generateMatrix(matLength, gr,gre, pr, wl, wlbr, ug) {
     let matrix = [];

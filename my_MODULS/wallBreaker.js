@@ -1,5 +1,5 @@
-var GrassEater = require('./grassEater')
-module.exports = class WallBreaker extends GrassEater{
+import GrassEater from './grassEater.js';
+export default class WallBreaker extends GrassEater{
     
 
     mul () {

@@ -1,5 +1,5 @@
-var GrassEater = require("./grassEater")
-module.exports = class UneatableGrass extends GrassEater{
+import GrassEater from "./grassEater.js";
+export default class UneatableGrass extends GrassEater{
     
 
     mul () {

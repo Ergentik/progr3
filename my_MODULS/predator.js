@@ -1,5 +1,5 @@
-var GrassEater = require("./grassEater");
-module.exports = class Predator extends GrassEater{
+import GrassEater from "./grassEater.js";
+export default class Predator extends GrassEater{
    
     mul () {
         var emptyCells = this.chooseCell(0);

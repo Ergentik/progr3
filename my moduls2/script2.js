@@ -1,15 +1,8 @@
-var express = require("express");
+function keydown(evt) {
+    console.log(evt)
 
-var app = express();
-
-app.get("/", function(req, res){
-
-res.send("Hello world");
-
-});
-
-app.listen(3000, function(){
-
-console.log("Example is running on port 3000");
-
-});
+    console.log("You printed " + evt.key);
+    
+    }
+    
+    window.onkeydown = keydown;

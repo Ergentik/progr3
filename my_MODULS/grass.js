@@ -1,5 +1,5 @@
-
-module.exports = class Grass extends GrassEater {
+import GrassEater from "./grassEater.js";
+export default class Grass extends GrassEater {
   
     chooseCell(character) {
         var found = [];

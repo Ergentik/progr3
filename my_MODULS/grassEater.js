@@ -1,4 +1,4 @@
-module.exports = class GrassEater  {
+export default class GrassEater  {
     constructor(x, y) {
         this.x = x;
         this.y = y;
