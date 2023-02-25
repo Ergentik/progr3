@@ -1,5 +1,5 @@
-import GrassEater from "./grassEater.js";
-export default class Grass extends GrassEater {
+var GrassEater = require('./GrassEater') 
+module.exports = class Grass extends GrassEater {
   
     chooseCell(character) {
         var found = [];
@@ -17,7 +17,7 @@ export default class Grass extends GrassEater {
     mul () {
         this.multiply++;
         var emptyCells = this.chooseCell(0);
-        var newCell = random(emptyCells);
+        var newCell = emptyCells[ Math.round(Math.random()*emptyCells.length)]
  
         console.log(emptyCells, newCell);
         if(newCell && this.multiply >= 2){

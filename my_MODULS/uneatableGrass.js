@@ -1,11 +1,11 @@
-import GrassEater from "./grassEater.js";
-export default class UneatableGrass extends GrassEater{
+var GrassEater = require('./GrassEater') 
+module.exports =class UneatableGrass extends GrassEater{
     
 
     mul () {
         this.multiply++;
         var emptyCells = this.chooseCell(0);
-        var newCell = random(emptyCells);
+        var newCell = emptyCells[ Math.round(Math.random()*emptyCells.length)]
  
         console.log(emptyCells, newCell);
         if(newCell && this.multiply >= 10){
