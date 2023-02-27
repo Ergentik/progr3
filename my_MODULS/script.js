@@ -1,7 +1,5 @@
 var socket = io();
-function handleMatrix(matrix) {
-console.log(matrix)
-}
+
 function handleMatrix2(grassArr,predatorArr,grassEaterArr,
     uneatableGrassArr,wallBreakerArr,wallarr) {
     console.log(grassArr,predatorArr,grassEaterArr,
@@ -11,7 +9,7 @@ socket.on('send matrix', drawing);
 socket.on('send Obj', handleMatrix2);
 let side = 15
 function setup() {
-    frameRate(4)
+    frameRate(0)
     createCanvas(30 * side, 30 * side);
     background('#acacac');}
     
@@ -200,4 +198,4 @@ function setup() {
 //     for (let i in uneatableGrassArr) {
 //         uneatableGrassArr[i].mul()
 //     }
-// }
+// newGrass

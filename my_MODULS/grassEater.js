@@ -1,9 +1,9 @@
-
 module.exports = class GrassEater  {
     constructor(x, y) {
         this.x = x;
         this.y = y;
-        this.energy = 20;
+        this.energy = 10;
+        
         this.directions = [];
     }
     getNewCoordinates() {
@@ -26,9 +26,7 @@ module.exports = class GrassEater  {
             var x = this.directions[i][0];
             var y = this.directions[i][1];
             if (x >= 0 && x <  matrix1[0].length && y >= 0 && y <  matrix1.length) {
-    
-                if ( matrix1
-[y][x] == character) {
+                if ( matrix1[y][x] == character) {
                     found.push(this.directions[i]);
                 }
             }
@@ -53,7 +51,7 @@ module.exports = class GrassEater  {
     }
 
     move() {
-        this.energy--
+        this.energy--;
         var emptyCells = this.chooseCell(0);
         var newCell = emptyCells[ Math.round(Math.random()*emptyCells.length)]
         if(newCell && this.energy >= 0) {

@@ -19,7 +19,7 @@ server.listen(3000);
 
 matrix1 = []
 io.on('connection', function (socket) {
-  
+    
     createObj()
 
 });
@@ -39,13 +39,13 @@ io.on('connection', function (socket) {
                     matrix[x][y] = 1;
                 }
             }
-            for (let i = 0; i < gre; i++) {
-                let x = Math.floor(Math.random() * matLength);
-                let y = Math.floor(Math.random() * matLength);
-                if (matrix[y][x] == 0) {
-                    matrix[x][y] = 2;
-                }
-            }
+            // for (let i = 0; i < gre; i++) {
+            //     let x = Math.floor(Math.random() * matLength);
+            //     let y = Math.floor(Math.random() * matLength);
+            //     if (matrix[y][x] == 0) {
+            //         matrix[x][y] = 2;
+            //     }
+            // }
             for (let i = 0; i < pr; i++) {
                 let x = Math.floor(Math.random() * matLength);
                 let y = Math.floor(Math.random() * matLength);
@@ -99,7 +99,7 @@ uneatableGrassArr = []
 
 
 
-matrix1 = generateMatrix(30, 20, 20, 20, 160, 5, 2)
+matrix1 = generateMatrix(30, 10, 10, 10, 10, 10, 10)
 
 function createObj() {
     
@@ -138,7 +138,6 @@ function game (
        for (let i in grassArr) {
                 grassArr[i].mul()
             }
-        
             for (let i in grassEaterArr) {
                 grassEaterArr[i].eat()
             }
@@ -162,3 +161,4 @@ function game (
 setInterval(game,200)
 
 console.log('aaa')
+
