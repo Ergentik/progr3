@@ -7,11 +7,11 @@ module.exports = class Predator extends GrassEater{
         if(newCell){
             var newX = newCell[0];
             var newY = newCell[1];
-            matrix[newY][newX] = 3;
+            matrix1[newY][newX] = 3;
  
             var newGrass = new Predator(newX, newY);
             predatorArr.push(newGrass);
-            this.energy = 8;
+            this.energy = 30;
         }
     }
     eat() {
@@ -25,7 +25,7 @@ module.exports = class Predator extends GrassEater{
             matrix1[this.y][this.x] = 0;
             this.x = newX
             this.y = newY
-            if(this.energy > 15) {
+            if(this.energy > 5) {
                 this.mul()
             }
             for (var i in grassEaterArr) {
@@ -39,5 +39,14 @@ module.exports = class Predator extends GrassEater{
             this.move()
         }
     }
+    die() {
+        matrix1[this.y][this.x] = 0;
+       for (var i in predatorArr) {
+           if (this.x == predatorArr[i].x && this.y == predatorArr[i].y) {
+            predatorArr.splice(i, 1);
+               break;
+           }
+       }
+   }
     
 }

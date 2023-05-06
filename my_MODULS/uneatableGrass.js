@@ -14,7 +14,7 @@ module.exports =class UneatableGrass extends GrassEater{
         var newCell = emptyCells[ Math.round(Math.random()*emptyCells.length)]
 
         console.log(emptyCells, newCell);
-        if(newCell && this.multiply >= 10){
+        if(newCell && this.multiply >= 20){
             var newX = newCell[0];
             var newY = newCell[1];
             matrix1[newY][newX] = 6;

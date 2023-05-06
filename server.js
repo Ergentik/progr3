@@ -39,13 +39,13 @@ io.on('connection', function (socket) {
                     matrix[x][y] = 1;
                 }
             }
-            // for (let i = 0; i < gre; i++) {
-            //     let x = Math.floor(Math.random() * matLength);
-            //     let y = Math.floor(Math.random() * matLength);
-            //     if (matrix[y][x] == 0) {
-            //         matrix[x][y] = 2;
-            //     }
-            // }
+            for (let i = 0; i < gre; i++) {
+                let x = Math.floor(Math.random() * matLength);
+                let y = Math.floor(Math.random() * matLength);
+                if (matrix[y][x] == 0) {
+                    matrix[x][y] = 2;
+                }
+            }
             for (let i = 0; i < pr; i++) {
                 let x = Math.floor(Math.random() * matLength);
                 let y = Math.floor(Math.random() * matLength);
@@ -99,7 +99,7 @@ uneatableGrassArr = []
 
 
 
-matrix1 = generateMatrix(30, 10, 10, 10, 10, 10, 10)
+matrix1 = generateMatrix(30, 10, 10, 10, 50, 20, 10)
 
 function createObj() {
     

@@ -1,4 +1,5 @@
-var GrassEater = require('./GrassEater') 
+var GrassEater = require('./GrassEater'); 
+const Predator = require('./predator');
 module.exports =class WallBreaker extends GrassEater{
     mul () {
         var emptyCells = this.chooseCell(0);
@@ -10,12 +11,12 @@ module.exports =class WallBreaker extends GrassEater{
              matrix1[newY][newX] = 5;
  
             var newWall=  new WallBreaker(newX, newY);
-            wallBreaker.arr.push(newWall);
+            wallBreakerArr.push(newWall);
             this.energy = 8;
         }
     }
     eat() {
-        var emptyCells = this.chooseCell(1);
+        var emptyCells = this.chooseCell(4);
         var newCell = emptyCells[ Math.round(Math.random()*emptyCells.length)]
         if(newCell) {
             this.energy++
@@ -25,7 +26,7 @@ module.exports =class WallBreaker extends GrassEater{
             matrix1[this.y][this.x] = 0;
             this.x = newX
             this.y = newY
-            if(this.energy > 15) {
+            if(this.energy > 8) {
                 this.mul()
             }
             for (var i in wallarr) {
@@ -39,10 +40,16 @@ module.exports =class WallBreaker extends GrassEater{
             this.move()
         }
     }
-    
+    die() {
+        matrix1[this.y][this.x] = 0;
+       for (var i in wallBreakerArr) {
+           if (this.x == wallBreakerArr[i].x && this.y == wallBreakerArr[i].y) {
+            wallBreakerArr.splice(i, 1);
+               break;
+           }
+       }
+   }
     
 
     
 }
-
-

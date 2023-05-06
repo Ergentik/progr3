@@ -62,7 +62,7 @@ module.exports = class Grass  {
         var newCell = emptyCells[ Math.round(Math.random()*emptyCells.length)]
  
         console.log(emptyCells, newCell);
-        if(newCell && this.multiply >= 2){
+        if(newCell && this.multiply >= 4){
             var newX = newCell[0];
             var newY = newCell[1];
             matrix1[newY][newX] = 1;

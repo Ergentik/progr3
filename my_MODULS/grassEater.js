@@ -2,7 +2,7 @@ module.exports = class GrassEater  {
     constructor(x, y) {
         this.x = x;
         this.y = y;
-        this.energy = 10;
+        this.energy = 20;
         
         this.directions = [];
     }
@@ -46,7 +46,7 @@ module.exports = class GrassEater  {
  
             var newGrass = new GrassEater(newX, newY);
             grassEaterArr.push(newGrass);
-            this.energy = 8;
+            this.energy = 200;
         }
     }
 
@@ -77,7 +77,7 @@ module.exports = class GrassEater  {
              matrix1[this.y][this.x] = 0;
             this.x = newX
             this.y = newY
-            if(this.energy > 15) {
+            if(this.energy > 10) {
                 this.mul()
             }
             for (var i in grassArr) {
