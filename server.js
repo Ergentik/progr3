@@ -4,7 +4,8 @@ var Wall = require( './my_MODULS/wall.js');
 var WallBreaker = require( './my_MODULS/wallBreaker.js');
 var UneatableGrass = require( './my_MODULS/uneatableGrass.js');
 var Grass = require( './my_MODULS/grass.js');
-// var { Socket } = require( 'socket.io');
+
+var { Socket } = require( 'socket.io');
 
 
 var express = require('express');
@@ -18,13 +19,14 @@ res.redirect('index.html');
 server.listen(3000);
 
 matrix1 = []
-io.on('connection', function (socket) {
+// / io.on('connection', function (socket) {
     
-    createObj()
+//     createObj()
 
-});
+// });/
 
         function generateMatrix(matLength, gr,gre, pr, wl, wlbr, ug) {
+            
             var matrix = [];
             for (let i = 0; i < matLength; i++) {
                 matrix.push([])
@@ -98,9 +100,8 @@ uneatableGrassArr = []
 
 
 
-
-matrix1 = generateMatrix(30, 10, 10, 10, 50, 20, 10)
-
+matrix1 = generateMatrix(30, 50, 20, 20, 10, 10, 10)
+createObj()
 function createObj() {
     
 
@@ -157,8 +158,10 @@ function game (
             io.sockets.emit("send matrix",matrix1)
 
         }
+        // io.sockets.emit("send matrix",matrix1)
+
 
 setInterval(game,200)
 
-console.log('aaa')
+// console.log('aaa')
 

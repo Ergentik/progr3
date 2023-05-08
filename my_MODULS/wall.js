@@ -5,7 +5,7 @@ module.exports = class Wall extends GrassEater{
         var emptyCells = this.chooseCell(10);
         var newCell = emptyCells[ Math.round(Math.random()*emptyCells.length)]
  
-        console.log(emptyCells, newCell);
+        // console.log(emptyCells, newCell);
         if(newCell && this.multiply >= 2){
             var newX = newCell[0];
             var newY = newCell[1];

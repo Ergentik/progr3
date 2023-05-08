@@ -1,17 +1,47 @@
-var socket = io();
 
-function handleMatrix2(grassArr,predatorArr,grassEaterArr,
-    uneatableGrassArr,wallBreakerArr,wallarr) {
-    console.log(grassArr,predatorArr,grassEaterArr,
-        uneatableGrassArr,wallBreakerArr,wallarr)
-    }
+var socket = io();
+var eventpp = document.getElementById("pElement")
+
+// function handleMatrix2(grassArr,predatorArr,grassEaterArr,
+//     uneatableGrassArr,wallBreakerArr,wallarr) {
+//     console.log(grassArr,predatorArr,grassEaterArr,
+//         uneatableGrassArr,wallBreakerArr,wallarr)
+//     }
 socket.on('send matrix', drawing);
-socket.on('send Obj', handleMatrix2);
+
+
+ window.addEventListener("click", a)
+ 
+
+// socket.on('send Obj', handleMatrix2);
 let side = 15
+
+
+
+function a (){
+    console.log('qdqd')
+    socket.on('send matrix',eventik )
+}
+
+function eventik(matrix1){
+    var o = Math.floor(Math.random()*matrix1.length)
+    for (var f = 0; f < matrix1.length; f++) {
+       
+        matrix1[o].shift()
+        matrix1[o].push('[0]')
+        
+
+
+    }
+    
+return(matrix1)
+
+}
 function setup() {
-    frameRate(0)
+    frameRate(1)
     createCanvas(30 * side, 30 * side);
-    background('#acacac');}
+    background('#acacac');
+}
     
     
     function drawing(matrix) {
@@ -46,6 +76,7 @@ function setup() {
             }
         }
     }
+
 
 // function generateMatrix(matLength, gr,gre, pr, wl, wlbr, ug) {
 //     let matrix = [];
