@@ -2,41 +2,37 @@
 var socket = io();
 var eventpp = document.getElementById("pElement")
 
-// function handleMatrix2(grassArr,predatorArr,grassEaterArr,
-//     uneatableGrassArr,wallBreakerArr,wallarr) {
-//     console.log(grassArr,predatorArr,grassEaterArr,
-//         uneatableGrassArr,wallBreakerArr,wallarr)
-//     }
+
 socket.on('send matrix', drawing);
 
 
+
  window.addEventListener("click", a)
+//  window.addEventListener("keydown",c )
+
  
 
-// socket.on('send Obj', handleMatrix2);
+    
+
+
 let side = 15
-
-
+function c (){
+    socket.on('send matrix', b)
+}
+function b (matrix1){
+    console.log(matrix1)
+    
+}
 
 function a (){
+    let e = Math.floor(Math.random()*29)
     console.log('qdqd')
-    socket.on('send matrix',eventik )
-}
-
-function eventik(matrix1){
-    var o = Math.floor(Math.random()*matrix1.length)
-    for (var f = 0; f < matrix1.length; f++) {
-       
-        matrix1[o].shift()
-        matrix1[o].push('[0]')
-        
-
-
-    }
     
-return(matrix1)
-
+    socket.emit("a", e);
+    // socket.on("event",e)
 }
+
+
 function setup() {
     frameRate(1)
     createCanvas(30 * side, 30 * side);

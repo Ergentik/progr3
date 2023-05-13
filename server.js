@@ -5,7 +5,8 @@ var WallBreaker = require( './my_MODULS/wallBreaker.js');
 var UneatableGrass = require( './my_MODULS/uneatableGrass.js');
 var Grass = require( './my_MODULS/grass.js');
 
-var { Socket } = require( 'socket.io');
+// var { Socket } = require( 'socket.io');
+
 
 
 var express = require('express');
@@ -18,16 +19,57 @@ res.redirect('index.html');
 });
 server.listen(3000);
 
-matrix1 = []
-// / io.on('connection', function (socket) {
-    
-//     createObj()
 
-// });/
+matrix1 = []
+
+// socket.emit('event',ergentik)
+
+io.sockets.on('connection', function(socket){
+console.log("hihi")
+    socket.on('a', function(data){
+    
+
+
+        console.log(data)
+        console.log(data+1)
+   
+          
+            
+            
+            for (let f = -1; f < 29; f++) {
+                
+                matrix1[data].shift()
+                matrix1[data].push(4)
+                
+        
+        
+            }
+            for (let f = -1; f < 29; f++) {
+                
+                matrix1[data+1].shift()
+                matrix1[data+1].push(4)
+                
+        
+        
+            }
+            
+            return(matrix1)
+            
+
+    
+    });
+})
+
+    // createObj()
+
+
+function r(e){
+    console.log(e)
+}
 
         function generateMatrix(matLength, gr,gre, pr, wl, wlbr, ug) {
             
-            var matrix = [];
+            var matrix = []
             for (let i = 0; i < matLength; i++) {
                 matrix.push([])
                 for (let j = 0; j < matLength; j++) {
@@ -81,6 +123,7 @@ matrix1 = []
             return matrix;
             
         }
+        
 grassArr = [];
 grassEaterArr = [];
 predatorArr = []
@@ -100,8 +143,10 @@ uneatableGrassArr = []
 
 
 
-matrix1 = generateMatrix(30, 50, 20, 20, 10, 10, 10)
+matrix1 = generateMatrix(30, 50, 20, 20, 0, 0, 10)
 createObj()
+
+
 function createObj() {
     
 
@@ -136,6 +181,7 @@ function createObj() {
 }
 function game (
 ){
+    // console.log(matrix1)
        for (let i in grassArr) {
                 grassArr[i].mul()
             }
@@ -159,9 +205,11 @@ function game (
 
         }
         // io.sockets.emit("send matrix",matrix1)
+        function eventik(e){
+            
+        }
 
-
-setInterval(game,200)
+setInterval(game,2000)
 
 // console.log('aaa')
 
