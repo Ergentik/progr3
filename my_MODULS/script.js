@@ -1,23 +1,24 @@
 
 var socket = io();
-var eventpp = document.getElementById("pElement")
+
 
 
 socket.on('send matrix', drawing);
 
 
 
+
  window.addEventListener("click", a)
 //  window.addEventListener("keydown",c )
 
- 
+
 
     
+// var h = matrix1.length
 
 
-let side = 15
 function c (){
-    socket.on('send matrix', b)
+    socket.on('send matrix', a)
 }
 function b (matrix1){
     console.log(matrix1)
@@ -25,8 +26,7 @@ function b (matrix1){
 }
 
 function a (){
-    let e = Math.floor(Math.random()*29)
-    console.log('qdqd')
+    let e = Math.floor(Math.random()*27)
     
     socket.emit("a", e);
     // socket.on("event",e)
@@ -35,8 +35,8 @@ function a (){
 
 function setup() {
     frameRate(1)
-    createCanvas(30 * side, 30 * side);
-    background('#acacac');
+    createCanvas(100 * 15,100 * 15);
+    background("#FFFFFF");
 }
     
     
@@ -66,14 +66,14 @@ function setup() {
                 }
     
     
-                rect(x * side, y * side, side, side);
+                rect(x * 15, y * 15, 15, 15);
     
     
             }
         }
     }
 
-
+    document.getElementById("pElement").innerHTML = Textik;
 // function generateMatrix(matLength, gr,gre, pr, wl, wlbr, ug) {
 //     let matrix = [];
 //     for (let i = 0; i < matLength; i++) {
@@ -130,7 +130,7 @@ function setup() {
 // }
 // let matrix = generateMatrix(30, 20, 20, 20, 160, 5, 2)
 
-// var side = 20;
+// var 15 = 20;
 
 // let grassArr = [];
 // let grassEaterArr = [];
@@ -141,7 +141,7 @@ function setup() {
 
 // function setup() {
 //     frameRate(5);
-//     createCanvas(matrix[0].length * side, matrix.length * side);
+//     createCanvas(matrix[0].length * 15, matrix.length * 15);
 //     background('#acacac');
 
 //     for (var y = 0; y < matrix.length; y++) {
@@ -200,7 +200,7 @@ function setup() {
 //             }
 
 
-//             rect(x * side, y * side, side, side);
+//             rect(x * 15, y * 15, 15, 15);
 
 
 //         }

@@ -11,7 +11,7 @@ module.exports = class Wall extends GrassEater{
             var newY = newCell[1];
             matrix1[newY][newX] = 4;
  
-            var newWall = new Grass(newX, newY);
+            var newWall = new Wall(newX, newY);
             wallarr.push(newWall);
             this.multiply = 0;
         }

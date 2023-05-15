@@ -35,11 +35,17 @@ console.log("hihi")
    
           
             
-            
+        KillObj()
+        // console.log(grassArr)
+        // console.log(grassEaterArr)
+        // console.log(wallBreakerArr)
+        // console.log(predatorArr)
+        // console.log(uneatableGrassArr)
+        // console.log(wallarr)
             for (let f = -1; f < 29; f++) {
                 
                 matrix1[data].shift()
-                matrix1[data].push(4)
+                matrix1[data].push(1)
                 
         
         
@@ -47,17 +53,38 @@ console.log("hihi")
             for (let f = -1; f < 29; f++) {
                 
                 matrix1[data+1].shift()
-                matrix1[data+1].push(4)
+                matrix1[data+1].push(0)
                 
         
         
             }
-            
+            for (let f = -1; f < 29; f++) {
+                
+                matrix1[data+2].shift()
+                matrix1[data+2].push(2)
+                
+        
+        
+            }
+            for (let f = -1; f < 29; f++) {
+                
+                matrix1[data+3].shift()
+                matrix1[data+3].push(5)
+                
+        
+        
+            }
+
+            // createObj()
+            createObj()
             return(matrix1)
+            
+            
             
 
     
     });
+    
 })
 
     // createObj()
@@ -131,6 +158,9 @@ wallarr = []
 wallBreakerArr = []
 uneatableGrassArr = []
 
+function consolelog(){
+    console.log(grassArr)
+}
 
 
 
@@ -143,15 +173,15 @@ uneatableGrassArr = []
 
 
 
-matrix1 = generateMatrix(30, 50, 20, 20, 0, 0, 10)
+matrix1 = generateMatrix(30, 50, 20, 20, 40, 20, 10)
 createObj()
 
 
 function createObj() {
     
 
-    for (var y = 0; y < matrix1.length; y++) {
-        for (var x = 0; x < matrix1[y].length; x++) {
+    for (let y = 0; y < matrix1.length; y++) {
+        for (let x = 0; x < matrix1[y].length; x++) {
             if (matrix1[y][x] == 1) {
                 let gr = new Grass(x, y);
                 grassArr.push(gr)
@@ -202,14 +232,38 @@ function game (
             }
 
             io.sockets.emit("send matrix",matrix1)
-
+            
+            
         }
         // io.sockets.emit("send matrix",matrix1)
         function eventik(e){
             
         }
 
-setInterval(game,2000)
+
+
+
+
+        function KillObj(){
+            for (let y = 0; y < Math.pow(matrix1.length+1, 2); y++) {
+                grassArr.shift()
+            }
+            for (let y = 0; y < Math.pow(matrix1.length+1, 2); y++) {
+                grassEaterArr.shift() 
+            }for (let y = 0; y <Math.pow(matrix1.length+1, 2); y++) {
+                predatorArr.shift()
+            }for (let y = 0; y < Math.pow(matrix1.length+1, 2); y++) {
+                wallBreakerArr.shift()
+            }for (let y = 0; y < Math.pow(matrix1.length+1, 2); y++) {
+                uneatableGrassArr.shift()
+            }
+            for (let y = 0; y <Math.pow(matrix1.length+1, 2); y++) {
+                wallarr.shift()
+            }
+            
+        }
+
+setInterval(game,200)
 
 // console.log('aaa')
 
