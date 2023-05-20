@@ -1,79 +1,140 @@
-
+document.getElementById("pElement").style.fontSize = "40px";
+document.getElementById("pElement").style.backgroundColor = "black";
+document.getElementById("pElement").style.color = "white";
 var socket = io();
 
 
-
+socket.on('send weather', weatherik);
 socket.on('send matrix', drawing);
 
 
 
 
- window.addEventListener("click", a)
+window.addEventListener("click", a)
 //  window.addEventListener("keydown",c )
 
 
 
-    
+
+
 // var h = matrix1.length
 
 
-function c (){
+function c() {
     socket.on('send matrix', a)
 }
-function b (matrix1){
+function b(matrix1) {
     console.log(matrix1)
-    
+
 }
 
-function a (){
-    let e = Math.floor(Math.random()*27)
-    
+function a() {
+    let e = Math.floor(Math.random() * 27)
+
     socket.emit("a", e);
     // socket.on("event",e)
 }
+var weather;
+var Textik;
+function weatherik(exanak) {
+
+    if (exanak == 0) {
+        weather = 0
+
+    }
+    else if (exanak == 1) {
+        weather = 1
+
+    }
+    else if (exanak == 2) {
+        weather = 2
+
+    }
+    else if (exanak == 3) {
+        weather = 3
+
+    }
+    if (weather == 0) {
+        var Textik = "Summer"
+    }
+    else if (weather == 1) {
+        var Textik = "Autumn"
+    }
+    else if (weather == 2) {
+        var Textik = "Winter"
+    }
+    else if (weather == 3) {
+        var Textik = "Spring"
+    }
+    document.getElementById("pElement").innerHTML = Textik;
+}
+
+
 
 
 function setup() {
     frameRate(1)
-    createCanvas(100 * 15,100 * 15);
+    createCanvas(100 * 15, 100 * 15);
     background("#FFFFFF");
 }
-    
-    
-    function drawing(matrix) {
-        for (var y = 0; y < matrix.length; y++) {
-            for (var x = 0; x < matrix[y].length; x++) {
-    
-                if (matrix[y][x] == 1) {
-                    fill("green");
+
+
+function drawing(matrix) {
+    for (var y = 0; y < matrix.length; y++) {
+        for (var x = 0; x < matrix[y].length; x++) {
+
+            if (matrix[y][x] == 1) {
+                if (weather == 2) { fill("#E0FFFF") }
+                else if(weather == 3) {
+                    fill("#ADFF2F");
                 }
-                else if (matrix[y][x] == 0) {
-                    fill("#acacac");
-                } else if (matrix[y][x] == 2) {
-                    fill("yellow");
+                else if(weather == 0 ){
+                    fill("green")
                 }
-                else if (matrix[y][x] == 3) {
-                    fill("red");
+                else if(weather == 1){
+                    fill("gold")
                 }
-                else if (matrix[y][x] == 4) {
-                    fill("black");
-                }
-                else if (matrix[y][x] == 5) {
-                    fill("white");
-                }
-                else if (matrix[y][x] == 6) {
-                    fill("brown");
-                }
-    
-    
-                rect(x * 15, y * 15, 15, 15);
-    
-    
             }
+            else if (matrix[y][x] == 0) {
+
+                fill("#acacac");
+            } else if (matrix[y][x] == 2) {
+                fill("yellow");
+            }
+            else if (matrix[y][x] == 3) {
+                fill("red");
+            }
+            else if (matrix[y][x] == 4) {
+                fill("black");
+            }
+            else if (matrix[y][x] == 5) {
+                fill("white");
+            }
+            else if (matrix[y][x] == 6) {
+                
+                    if (weather == 0) { fill("brown") }
+                    else if(weather == 1) {
+                        fill("#FFFFE0");
+                    }
+                    else if(weather == 2 ){
+                        fill("#66CDAA")
+                    }
+                    else if(weather == 3){
+                        fill("#006400")
+                    }
+                
+            }
+
+
+            rect(x * 15, y * 15, 15, 15);
+
+
         }
     }
 
-    document.getElementById("pElement").innerHTML = Textik;
+}
+
+
 // function generateMatrix(matLength, gr,gre, pr, wl, wlbr, ug) {
 //     let matrix = [];
 //     for (let i = 0; i < matLength; i++) {

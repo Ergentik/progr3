@@ -22,10 +22,11 @@ server.listen(3000);
 
 matrix1 = []
 
+
 // socket.emit('event',ergentik)
 
 io.sockets.on('connection', function(socket){
-console.log("hihi")
+
     socket.on('a', function(data){
     
 
@@ -89,6 +90,8 @@ console.log("hihi")
 
     // createObj()
 
+
+    
 
 function r(e){
     console.log(e)
@@ -173,7 +176,7 @@ function consolelog(){
 
 
 
-matrix1 = generateMatrix(30, 50, 20, 20, 40, 20, 10)
+matrix1 = generateMatrix(30, 80, 30, 20, 40, 20, 1)
 createObj()
 
 
@@ -230,8 +233,10 @@ function game (
             for (let i in uneatableGrassArr) {
                 uneatableGrassArr[i].mul()
             }
-
+            var exanak = require('./my_MODULS/exanak.js')
             io.sockets.emit("send matrix",matrix1)
+            
+            io.sockets.emit("send weather",exanak)
             
             
         }
@@ -262,8 +267,13 @@ function game (
             }
             
         }
+        
+
+
+
+
 
 setInterval(game,200)
 
-// console.log('aaa')
+
 

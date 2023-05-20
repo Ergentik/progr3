@@ -1,4 +1,5 @@
 var GrassEater = require('./GrassEater') 
+var exanak = require('./exanak.js')
 module.exports = class Wall extends GrassEater{
     mul () {
         this.multiply++;

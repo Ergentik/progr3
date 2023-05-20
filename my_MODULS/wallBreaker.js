@@ -1,5 +1,7 @@
 var GrassEater = require('./GrassEater'); 
+var exanak = require('./exanak.js')
 const Predator = require('./predator');
+
 module.exports =class WallBreaker extends GrassEater{
     mul () {
         var emptyCells = this.chooseCell(0);
@@ -15,6 +17,41 @@ module.exports =class WallBreaker extends GrassEater{
             this.energy = 8;
         }
     }
+    move() {
+        this.energy--;
+        var emptyCells = this.chooseCell(0);
+        var newCell = emptyCells[ Math.round(Math.random()*emptyCells.length)]
+        if(exanak == 2){
+            if(newCell && this.energy >= 0) {
+                var newX = newCell[0];
+                var newY = newCell[1];
+                 matrix1[newY][newX] =  matrix1[this.y][this.x]
+                 matrix1[this.y][this.x] = 0;
+                this.x = newX
+                this.y = newY
+                
+            } 
+                
+        }
+        else{
+        if(newCell && this.energy >= 0) {
+            var newX = newCell[0];
+            var newY = newCell[1];
+             matrix1[newY][newX] =  matrix1[this.y][this.x]
+             matrix1[this.y][this.x] = 0;
+            this.x = newX
+            this.y = newY
+            
+        } else {
+            this.die()
+                
+            
+
+             
+        }
+    }
+    }
+
     eat() {
         var emptyCells = this.chooseCell(4);
         var newCell = emptyCells[ Math.round(Math.random()*emptyCells.length)]

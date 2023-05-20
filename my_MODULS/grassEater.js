@@ -1,8 +1,28 @@
+// var Koeficent;
+// function weather1(){
+//      exanak = require('./exanak.js')
+//     if (exanak == 0) {
+//      Koeficent = 2
+// }
+// else if(exanak == 1){
+//      Koeficent = 0
+// }
+// else if(exanak == 2){
+//      Koeficent = 0
+// }
+// else if(exanak == 3){
+//      Koeficent = 10
+// }
+
+ 
+// }
+
+
 module.exports = class GrassEater  {
     constructor(x, y) {
         this.x = x;
         this.y = y;
-        this.energy = 20;
+        this.energy = 10;
         
         this.directions = [];
     }
@@ -46,7 +66,7 @@ module.exports = class GrassEater  {
  
             var newGrass = new GrassEater(newX, newY);
             grassEaterArr.push(newGrass);
-            this.energy = 200;
+            this.energy = 10;
         }
     }
 
@@ -61,8 +81,13 @@ module.exports = class GrassEater  {
              matrix1[this.y][this.x] = 0;
             this.x = newX
             this.y = newY
+            
         } else {
             this.die()
+                
+            
+
+             
         }
     }
 
@@ -77,7 +102,7 @@ module.exports = class GrassEater  {
              matrix1[this.y][this.x] = 0;
             this.x = newX
             this.y = newY
-            if(this.energy > 10) {
+            if(this.energy > 0) {
                 this.mul()
             }
             for (var i in grassArr) {

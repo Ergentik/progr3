@@ -23,8 +23,29 @@
 //             this.multiply = 0;
 //         }
 //     }
- 
+
 // }
+var speedofgrowing;
+function weather1(){
+    var exanak = require('./exanak.js')
+    if (exanak == 0) {
+ speedofgrowing = 6
+
+}
+else if(exanak == 1){
+     speedofgrowing = 8
+
+}
+else if(exanak == 2){
+ speedofgrowing = 10
+
+}
+else if(exanak == 3){
+ speedofgrowing = 3
+
+}
+}
+setInterval(weather1,200);
 module.exports = class Grass  {
     constructor(x, y) {
         this.x = x;
@@ -62,7 +83,7 @@ module.exports = class Grass  {
         var newCell = emptyCells[ Math.round(Math.random()*emptyCells.length)]
  
         
-        if(newCell && this.multiply >= 4){
+        if(newCell && this.multiply >= speedofgrowing){
             var newX = newCell[0];
             var newY = newCell[1];
             matrix1[newY][newX] = 1;
@@ -74,3 +95,4 @@ module.exports = class Grass  {
     }
  
 }
+
