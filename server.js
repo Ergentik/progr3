@@ -19,20 +19,67 @@ res.redirect('index.html');
 });
 server.listen(3000);
 
-
+ratet = 0
 matrix1 = []
 
+var fs = require('fs');
+setInterval(qwww,1000)
 
+
+function qw(){
+    console.log(grasik)
+
+function main(){
+
+var file = "statistika.json";
+
+fs.appendFileSync(file, grasik.toString()+
+" grass in save "+ratet.toString()+" is in the game"+'\n');
+
+}
+
+main();
+}
+function qwww(){
+    if(grasik == undefined){
+
+    }
+    else{
+        ratet++
+        
+        qw()
+    }
+}
 // socket.emit('event',ergentik)
-
+var grasik;
 io.sockets.on('connection', function(socket){
+    socket.on('grasss', function(data){
+        grasik = data
 
+    })
+    socket.on('clear', function(data){
+        
+        if(data == 12){
+            KillObj()
+            for(let b = 0; b < 30;b++){
+                matrix1.shift()
+            }
+            KillObj()
+            matrix1 = generateMatrix(30, 0, 0, 0, 0, 0, 0)
+
+
+
+
+
+
+        }
+
+    })
     socket.on('a', function(data){
     
 
 
-        console.log(data)
-        console.log(data+1)
+       
    
           
             
@@ -54,7 +101,7 @@ io.sockets.on('connection', function(socket){
             for (let f = -1; f < 29; f++) {
                 
                 matrix1[data+1].shift()
-                matrix1[data+1].push(0)
+                matrix1[data+1].push(6)
                 
         
         
@@ -78,7 +125,7 @@ io.sockets.on('connection', function(socket){
 
             // createObj()
             createObj()
-            return(matrix1)
+            // return(matrix1)
             
             
             
@@ -90,8 +137,6 @@ io.sockets.on('connection', function(socket){
 
     // createObj()
 
-
-    
 
 function r(e){
     console.log(e)
@@ -177,6 +222,7 @@ function consolelog(){
 
 
 matrix1 = generateMatrix(30, 80, 30, 20, 40, 20, 1)
+// matrix1 = generateMatrix(30, 80, 0, 0, 0, 0, 0)
 createObj()
 
 
@@ -212,11 +258,12 @@ function createObj() {
     }
 
 }
-function game (
-){
+var eeq = 0
+function game (){
     // console.log(matrix1)
        for (let i in grassArr) {
                 grassArr[i].mul()
+                
             }
             for (let i in grassEaterArr) {
                 grassEaterArr[i].eat()
@@ -274,6 +321,13 @@ function game (
 
 
 setInterval(game,200)
+
+
+
+
+
+
+
 
 
 

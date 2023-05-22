@@ -1,6 +1,4 @@
-document.getElementById("pElement").style.fontSize = "40px";
-document.getElementById("pElement").style.backgroundColor = "black";
-document.getElementById("pElement").style.color = "white";
+
 var socket = io();
 
 
@@ -11,8 +9,14 @@ socket.on('send matrix', drawing);
 
 
 window.addEventListener("click", a)
+window.addEventListener("keydown", p)
 //  window.addEventListener("keydown",c )
-
+function p(){
+    let clear1 = 12
+    socket.emit("clear", clear1)
+    console.log("?")
+    
+}
 
 
 
@@ -74,16 +78,23 @@ function weatherik(exanak) {
 
 function setup() {
     frameRate(1)
-    createCanvas(100 * 15, 100 * 15);
-    background("#FFFFFF");
+    createCanvas(40 * 15, 40 * 15);
+    background("#FFFFFE");
 }
 
 
 function drawing(matrix) {
+    
+    var gras = 0 
+    
     for (var y = 0; y < matrix.length; y++) {
         for (var x = 0; x < matrix[y].length; x++) {
 
             if (matrix[y][x] == 1) {
+
+gras++
+
+
                 if (weather == 2) { fill("#E0FFFF") }
                 else if(weather == 3) {
                     fill("#ADFF2F");
@@ -131,8 +142,78 @@ function drawing(matrix) {
 
         }
     }
-
+    
+    
+    grasiqanak = gras
+    
+    
 }
+function grasss(){
+    socket.emit("grasss", gras);
+}
+setInterval(100,grasss)
+// function k(){
+//     console.log(2)
+// }
+// setInterval(2000,k)
+document.getElementById("pElement").style.fontSize = "40px";
+document.getElementById("pElement").style.backgroundColor = "black";
+document.getElementById("pElement").style.color = "white";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // function generateMatrix(matLength, gr,gre, pr, wl, wlbr, ug) {

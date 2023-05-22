@@ -1,19 +1,23 @@
-let matrix = []
+var fs = require('fs');
 
-for (i = 0; i < 20; i++) {
-    matrix.push([])
-    for (
-        p = 0; p < 20; p++
-    ) {
-        matrix[i].push(p)
-    }
+var dummyText = "Apple yep";
+
+function main() {
+
+fs.writeFileSync("dummytext.txt", dummyText);
+
+var text = fs.readFileSync("dummytext.txt").toString();
+
+console.log(dummyText == text);
+
+console.log(text);
+
+fs.writeFileSync("undummytext.txt",
+
+text.replace("Apple", "Microsoft")
+
+);
+
 }
-console.log(matrix)
 
-for (let p = 0; p < 20; p++) {
-    matrix[11].push(0)
-    matrix[11].shift()
-    
-}
-
-console.log(matrix)
+main();

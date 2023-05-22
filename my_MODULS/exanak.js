@@ -12,7 +12,7 @@ else{
     module.exports = exanak
 }
   
-    console.log(exanak)
+    
 } 
 setInterval(pogoda,3000)
 // var exanak = Math.floor(Math.random()*4)
