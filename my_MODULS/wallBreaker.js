@@ -1,7 +1,13 @@
 var GrassEater = require('./GrassEater'); 
 var exanak = require('./exanak.js')
 const Predator = require('./predator');
+var speedofgrowing;
+function weather1(){
+     exanak = require('./exanak.js')
+    
 
+}
+setInterval(weather1,200);
 module.exports =class WallBreaker extends GrassEater{
     mul () {
         var emptyCells = this.chooseCell(0);
@@ -18,10 +24,35 @@ module.exports =class WallBreaker extends GrassEater{
         }
     }
     move() {
+        if(exanak == 3){ 
+            
         this.energy--;
         var emptyCells = this.chooseCell(0);
         var newCell = emptyCells[ Math.round(Math.random()*emptyCells.length)]
-        if(exanak == 2){
+        
+            if(newCell && this.energy >= 10) {
+                var newX = newCell[0];
+                var newY = newCell[1];
+                 matrix1[newY][newX] =  matrix1[this.y][this.x]
+                 matrix1[this.y][this.x] = 0;
+                this.x = newX
+                this.y = newY
+                
+            } 
+            else {
+                this.die()
+                    
+                
+    
+                 
+            }
+        
+        }
+        else{
+            this.energy++;
+        var emptyCells = this.chooseCell(0);
+        var newCell = emptyCells[ Math.round(Math.random()*emptyCells.length)]
+        
             if(newCell && this.energy >= 0) {
                 var newX = newCell[0];
                 var newY = newCell[1];
@@ -31,25 +62,7 @@ module.exports =class WallBreaker extends GrassEater{
                 this.y = newY
                 
             } 
-                
         }
-        else{
-        if(newCell && this.energy >= 0) {
-            var newX = newCell[0];
-            var newY = newCell[1];
-             matrix1[newY][newX] =  matrix1[this.y][this.x]
-             matrix1[this.y][this.x] = 0;
-            this.x = newX
-            this.y = newY
-            
-        } else {
-            this.die()
-                
-            
-
-             
-        }
-    }
     }
 
     eat() {

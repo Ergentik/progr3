@@ -1,5 +1,5 @@
 
-var exanak = 0
+var exanak = Math.floor(Math.random()*4)
 function pogoda(){
     
     if (exanak <= 2)
